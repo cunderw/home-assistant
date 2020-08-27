@@ -1,0 +1,97 @@
+- id: '1598478184232'
+  name: Movie Time
+  entities:
+    light.livingroom_ceiling_1:
+      brightness: 255
+      color_temp: 27
+      friendly_name: Living Room Ceiling 1
+      max_mireds: 1000
+      min_mireds: 100
+      state: 'on'
+      supported_features: 3
+    light.livingroom_ceiling_2:
+      brightness: 255
+      color_temp: 27
+      friendly_name: Living Room Ceiling 2
+      max_mireds: 1000
+      min_mireds: 100
+      state: 'on'
+      supported_features: 3
+    light.livingroom_ceiling_3:
+      brightness: 255
+      color_temp: 27
+      friendly_name: Living Room Ceiling 3
+      max_mireds: 1000
+      min_mireds: 100
+      state: 'on'
+      supported_features: 3
+    light.kitchen_bar_1:
+      brightness: 28
+      friendly_name: Kitchen Bar 1
+      state: 'on'
+      supported_features: 41
+    light.kitchen_bar_2:
+      brightness: 28
+      friendly_name: Kitchen Bar 2
+      state: 'on'
+      supported_features: 41
+    light.kitchen_ceiling_1:
+      brightness: 28
+      friendly_name: Kitchen Ceiling 1
+      state: 'on'
+      supported_features: 41
+    light.kitchen_ceiling_2:
+      brightness: 32
+      friendly_name: Kitchen Ceiling 2
+      state: 'on'
+      supported_features: 41
+    light.kitchen_hallway_1:
+      brightness: 30
+      friendly_name: Kitchen Hallway 1
+      state: 'on'
+      supported_features: 41
+    light.kitchen_hallway_2:
+      brightness: 41
+      friendly_name: Kitchen Hallway 2
+      state: 'on'
+      supported_features: 41
+    light.kitchen_island_1:
+      brightness: 34
+      friendly_name: Kitchen Island 1
+      state: 'on'
+      supported_features: 41
+    light.kitchen_island_2:
+      brightness: 30
+      friendly_name: Kitchen Island 2
+      state: 'on'
+      supported_features: 41
+    light.kitchen_island_3:
+      brightness: 31
+      friendly_name: Kitchen Island 3
+      state: 'on'
+      supported_features: 41
+    light.kitchen_sink:
+      brightness: 33
+      friendly_name: Kitchen Sink
+      state: 'on'
+      supported_features: 41
+    light.living_room_floor_lamp:
+      brightness: 32
+      friendly_name: Living Room Floor Lamp
+      state: 'on'
+      supported_features: 41
+    light.living_room_lamp_1:
+      brightness: 40
+      friendly_name: Living Room Lamp 1
+      state: 'on'
+      supported_features: 41
+    light.living_room_lamp_2:
+      brightness: 30
+      friendly_name: Living Room Lamp 2
+      state: 'on'
+      supported_features: 41
+    light.living_room_lamp_3:
+      brightness: 28
+      friendly_name: Living Room Lamp 3
+      state: 'on'
+      supported_features: 41

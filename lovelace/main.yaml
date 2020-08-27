@@ -1,0 +1,244 @@
+title: Main
+cards:
+  # People & Weather
+  - cards:
+      - entities:
+          - entity: person.carson_underwood
+          - entity: person.anna_underwood
+        type: glance
+      - type: "custom:atomic-calendar-revive"
+        entities:
+        - entity: calendar.cunderw_gmail_com
+          titleColor: red
+        - entity: calendar.annalukavsky_gmail_com
+      - type: 'custom:mail-and-packages-card'
+        name: Mail Summary
+        updated: sensor.mail_updated
+        details: true
+        image: true
+        gif: /local/images/mail/mail_today.gif
+        packages_delivered: 
+        packages_in_transit: sensor.mail_packages_in_transit
+        fedex_packages: sensor.mail_fedex_packages
+        ups_packages: sensor.mail_ups_packages
+        usps_packages: sensor.mail_usps_packages
+        usps_mail: sensor.mail_usps_mail        
+    gridcol: 2
+    gridrow: 1
+    title: General
+    layout: vertical-stack
+    type: custom:layout-card
+  - type: custom:layout-card
+    layout: vertical-stack
+    gridcol: 2
+    gridrow: 2
+    title: Cameras
+  - cards:
+      - type: horizontal-stack
+        cards:
+        - type: glance
+          title: Cameras
+          entities:
+            - entity: binary_sensor.blink_front_driveway_camera_armed
+              name: Front
+            - entity: binary_sensor.blink_back_driveway_camera_armed
+              name: Back
+            - entity: binary_sensor.blink_breezeway_camera_armed
+              name: Breezeway
+        - type: glance
+          title: Battery
+          entities:
+            - entity: binary_sensor.blink_front_driveway_battery
+              name: Front
+            - entity: binary_sensor.blink_back_driveway_battery
+              name: Back
+            - entity: binary_sensor.blink_breezeway_battery
+              name: Breezeway
+      - type: horizontal-stack
+        cards:
+          - type: picture-entity
+            entity: camera.front_door
+            aspect_ratio: 50%
+            show_name: false
+            show_state: false
+          - type: picture-entity
+            entity: camera.blink_front_driveway
+            aspect_ratio: 50%
+            show_state: false
+            show_name: false
+      - type: horizontal-stack
+        cards:
+          - type: picture-entity
+            entity: camera.blink_back_driveway
+            aspect_ratio: 50%
+            show_state: false
+            show_name: false
+          - type: picture-entity
+            entity: camera.blink_breezeway
+            aspect_ratio: 50%
+            show_state: false
+            show_name: false
+      - type: custom:ha-card-weather-conditions
+        name: "Weather"
+        weather:
+          #icons_model: climacell
+          current:
+            sun: sun.sun
+            moon_phase: sensor.cc_climacell_moon_phase
+            current_conditions: sensor.cc_climacell_weather_condition
+            temperature: sensor.cc_climacell_temperature
+            feels_like: sensor.cc_climacell_feels_like
+            humidity: sensor.cc_climacell_humidity_percentage
+            pressure: sensor.cc_climacell_barometric_pressure
+            visibility: sensor.cc_climacell_visibility
+            wind_bearing: sensor.cc_climacell_wind_direction
+            wind_speed: sensor.cc_climacell_wind_speed
+            precipitation: sensor.cc_climacell_precipitation
+          forecast: true
+        forecast:
+          temperature_high:
+            day_1: sensor.cc_climacell_temperature_max_0d
+          temperature_low:
+            day_1: sensor.cc_climacell_temperature_min_0d
+          precipitation_probability:
+            day_1: sensor.cc_climacell_precipitation_probability_0d
+          precipitation_intensity:
+            day_1: sensor.cc_climacell_precipitation_max_0d
+      - type: custom:ha-card-weather-conditions
+        name: ""
+        animation: true
+        weather:
+          icons_model: climacell
+          forecast:
+            meteogram: camera.cc_climacell_c2
+            icons:
+              day_1: sensor.cc_climacell_weather_condition_0d
+              day_2: sensor.cc_climacell_weather_condition_1d
+              day_3: sensor.cc_climacell_weather_condition_2d
+              day_4: sensor.cc_climacell_weather_condition_3d
+              day_5: sensor.cc_climacell_weather_condition_4d
+            temperature_high:
+              day_1: sensor.cc_climacell_temperature_max_0d
+              day_2: sensor.cc_climacell_temperature_max_1d
+              day_3: sensor.cc_climacell_temperature_max_2d
+              day_4: sensor.cc_climacell_temperature_max_3d
+              day_5: sensor.cc_climacell_temperature_max_4d
+            temperature_low:
+              day_1: sensor.cc_climacell_temperature_min_0d
+              day_2: sensor.cc_climacell_temperature_min_1d
+              day_3: sensor.cc_climacell_temperature_min_2d
+              day_4: sensor.cc_climacell_temperature_min_3d
+              day_5: sensor.cc_climacell_temperature_min_4d
+            precipitation_probability:
+              day_1: sensor.cc_climacell_precipitation_probability_0d
+              day_2: sensor.cc_climacell_precipitation_probability_1d
+              day_3: sensor.cc_climacell_precipitation_probability_2d
+              day_4: sensor.cc_climacell_precipitation_probability_3d
+              day_5: sensor.cc_climacell_precipitation_probability_4d
+            precipitation_intensity:
+              day_1: sensor.cc_climacell_precipitation_max_0d
+              day_2: sensor.cc_climacell_precipitation_max_1d
+              day_3: sensor.cc_climacell_precipitation_max_2d
+              day_4: sensor.cc_climacell_precipitation_max_3d
+              day_5: sensor.cc_climacell_precipitation_max_4d    
+      - type: picture-entity
+        name: Radar
+        entity: camera.local_radar          
+    gridcol: 3
+    gridrow: 1
+    title:  Cameras
+    layout: vertical-stack
+    type: custom:layout-card
+  - cards:
+      - cards:
+        - entities:
+          - light.bedroom
+          - light.dining_room
+          - light.downstairs
+          - light.kitchen
+          - light.living_room
+          - light.office
+          title: Lights
+          type: entities
+        type: horizontal-stack
+    gridcol: 4
+    gridrow: 1
+    title: Media
+    layout: vertical-stack
+    type: custom:layout-card
+  - cards:
+      - artwork: cover
+        entity: media_player.all_speakers
+        hide:
+          power: true
+          source: false
+          volume: false
+        idle_view:
+          after: 10
+          when_idle: true
+          when_paused: true
+        type: 'custom:mini-media-player'
+      - artwork: cover
+        entity: media_player.kitchen_display
+        hide:
+          power: true
+          source: false
+          volume: false
+        idle_view:
+          after: 10
+          when_idle: true
+          when_paused: true
+        type: 'custom:mini-media-player'
+      - artwork: cover
+        entity: media_player.living_room_chromecast
+        hide:
+          power: true
+          source: false
+          volume: false
+        idle_view:
+          after: 10
+          when_idle: true
+          when_paused: true
+        type: 'custom:mini-media-player'
+      - artwork: cover
+        entity: media_player.living_room_tv
+        hide:
+          power: true
+          source: false
+          volume: false
+        idle_view:
+          after: 10
+          when_idle: true
+          when_paused: true
+        type: 'custom:mini-media-player'
+      - artwork: cover
+        entity: media_player.bedroom_speaker
+        hide:
+          power: true
+          source: false
+          volume: false
+        idle_view:
+          after: 10
+          when_idle: true
+          when_paused: true
+        type: 'custom:mini-media-player'
+      - artwork: cover
+        entity: media_player.office_speaker
+        hide:
+          power: true
+          source: false
+          volume: false
+        idle_view:
+          after: 10
+          when_idle: true
+          when_paused: true
+        type: 'custom:mini-media-player'
+    gridcol: 5
+    gridrow: 1
+    title: Media
+    layout: vertical-stack
+    type: custom:layout-card
+gridcols: auto 400px 400px 400px 400px auto
+gridrows: auto auto
+layout: grid
+type: custom:layout-card    

@@ -1,0 +1,70 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Home Assistant specific configs
+homeassistant:
+  name: Annacar Home
+  latitude: !secret gps_geo_home_lt
+  longitude: !secret gps_geo_home_ln
+  elevation: !secret gps_geo_home_el
+  unit_system: !secret unit_system
+  time_zone: !secret time_zone
+  external_url: !secret external_url
+  internal_url: !secret internal_url
+  allowlist_external_dirs:
+    - /tmp
+  customize: !include_dir_merge_named customize/  
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+# scripts to include so we don't have to clutter up single files  
+group: !include_dir_merge_named groups/
+automation: !include_dir_merge_named automations/
+script: !include_dir_merge_named scrips/
+scene: !include_dir_merge_named scenes/
+sensor: !include_dir_merge_named sensors/
+camera: !include_dir_merge_named camera/
+lovelace: !include /config/lovelace/lovelace.yaml
+light: !include /config/groups/lights.yaml
+
+# enables community store
+hacs: 
+  token: !secret hacs_key
+  appdaemon: true
+  netdaemon: true
+
+  # enable python scripts  
+python_script:
+
+# Enable theme
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Makes plex with work with google assistat
+plex_assistant:
+  url: !secret plex_url
+  token: !secret plex_token
+  default_cast: 'Living Room Chromecast'
+  language: 'en'
+  tts_errors: true
+  aliases:
+    Living Room Chromecast: Living Room Chromecast
+
+google:
+  client_id: !secret google_id
+  client_secret: !secret google_secret
+
+# this allows us to send commands to google assistant via a local rest api
+# requires google development api and oauth setup
+rest_command:
+  google_command:
+    url: !secret google_assistant_api
+    method: POST
+    headers:
+      accept: 'application/json, text/html'
+      user-agent: 'Mozilla/5.0 {{ useragent }}'
+    payload: '{"user": "homeassistant","command": "{{ command }}","converse": false}'
+    content_type:  'application/json; charset=utf-8'

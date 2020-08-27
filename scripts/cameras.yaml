@@ -1,0 +1,31 @@
+update_blink_cameras:
+  alias: Blink Snap Picture
+  sequence:
+  - data:
+      entity_id: camera.blink_front_driveway
+    service: blink.trigger_camera
+  - delay: 00:00:05
+  - service: blink.blink_update
+  - data:
+      entity_id: camera.blink_front_driveway
+      filename: /config/www/images/blink/front_driveway_{{ now().strftime("%Y%m%d-%H%M%S")}}.jpg
+    service: camera.snapshot
+  - data:
+      entity_id: camera.blink_back_driveway
+    service: blink.trigger_camera
+  - delay: 00:00:05
+  - service: blink.blink_update
+  - data:
+      entity_id: camera.blink_back_driveway
+      filename: /config/www/images/blink/back_driveway_{{ now().strftime("%Y%m%d-%H%M%S")}}.jpg
+    service: camera.snapshot
+  - data:
+      entity_id: camera.blink_breezeway
+    service: blink.trigger_camera
+  - delay: 00:00:05
+  - service: blink.blink_update
+  - data:
+      entity_id: camera.blink_breezeway
+      filename: /config/www/images/blink/breezeway_{{ now().strftime("%Y%m%d-%H%M%S")}}.jpg
+    service: camera.snapshot
+  mode: single

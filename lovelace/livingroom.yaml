@@ -1,0 +1,56 @@
+title: Living Room
+
+cards:
+  - cards:
+    - type: entities
+      title: Lights
+      entities:
+      - type: custom:fold-entity-row  
+        head:
+          type: custom:slider-entity-row  
+          entity: light.living_room_lamps
+        open: true
+        entities:   
+        - type: custom:slider-entity-row
+          entity: light.living_room_lamp_1
+          name: Lamp 1
+          icon: mdi:lamp
+        - type: custom:slider-entity-row
+          entity: light.living_room_lamp_2
+          name: Lamp 2
+          icon: mdi:lamp
+        - type: custom:slider-entity-row
+          entity: light.living_room_lamp_3
+          name: Lamp 3
+          icon: mdi:lamp
+        - type: custom:slider-entity-row  
+          entity: light.living_room_floor_lamp
+          name: Floor Lamp
+          icon: mdi:floor-lamp
+      - type: custom:fold-entity-row
+        head: 
+          type: custom:slider-entity-row  
+          entity: light.living_room_ceiling
+        open: true
+        entities:       
+        - type: custom:slider-entity-row 
+          entity: light.livingroom_ceiling_1
+          name: Ceiling 1
+          icon: mdi:ceiling-light
+        - type: custom:slider-entity-row  
+          entity: light.livingroom_ceiling_2
+          name: Ceiling 2
+          icon: mdi:ceiling-light
+        - type: custom:slider-entity-row
+          entity: light.livingroom_ceiling_3
+          name: Ceiling 3
+          icon: mdi:ceiling-light
+    title: Lights
+    gridcol: 4
+    gridrow: 1
+    layout: vertical-stack
+    type: custom:layout-card
+gridcols: auto 400px 400px 400px 400px auto
+gridrows: auto auto
+layout: grid
+type: custom:layout-card    

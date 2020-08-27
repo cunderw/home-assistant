@@ -1,0 +1,11 @@
+.HA_VERSION
+.cloud/
+.storage/
+home-assistant.log
+home-assistant_v2.db
+node-red/
+tts/
+.google.token
+secrets.yaml
+google_calendars.yaml
+aircast.xml

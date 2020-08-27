@@ -1,0 +1,12 @@
+- id: '1598477897223'
+  alias: Update Camera Images
+  description: ''
+  trigger:
+  - hours: '/1'
+    platform: time_pattern
+  condition: []
+  action:
+  - data: {}
+    entity_id: script.update_blink_cameras
+    service: script.turn_on
+  mode: single

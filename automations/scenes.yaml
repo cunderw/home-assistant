@@ -1,0 +1,15 @@
+- id: '1598479398406'
+  alias: Set scene when plex is playing
+  description: ''
+  trigger:
+  - entity_id: media_player.plex_plex_for_samsung_tv_2018
+    from: idle
+    platform: state
+    to: playing
+  condition: []
+  action:
+  - scene: scene.movie_time
+  - data:
+      command: Turn off the dining room lights
+    service: rest_command.google_command
+  mode: single

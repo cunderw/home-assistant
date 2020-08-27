@@ -1,0 +1,19 @@
+title: Home
+views:
+  - !include /config/lovelace/main.yaml
+  - !include /config/lovelace/livingroom.yaml
+  - !include /config/lovelace/kitchen.yaml
+  - !include /config/lovelace/bedroom.yaml
+  - !include /config/lovelace/office.yaml
+  - !include /config/lovelace/outhouse.yaml
+  - !include /config/lovelace/outside.yaml
+
+# theme settings        
+background: var(--background-image)
+custom_header:
+  background: 'rgba(155, 155, 155, 0.25)'
+  compact_mode: true
+  button_text:
+    options: ':'
+
+  
