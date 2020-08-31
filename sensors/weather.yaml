@@ -1,0 +1,60 @@
+## Weather climatecell.co
+platform: climacell
+api_key: !secret climacell_api_key
+name: climacell
+latitude: !secret gps_geo_home_lt
+longitude: !secret gps_geo_home_ln
+monitored_conditions:
+  realtime:
+    conditions:
+      - temperature
+      - feels_like
+      - humidity
+      - wind_speed
+      - wind_direction
+      - wind_gust
+      - precipitation
+      - precipitation_type
+    update: auto
+    scan_interval:
+      days: 0
+      hours: 0
+      minutes: 30
+      seconds: 0
+      milliseconds: 0
+  daily:
+    forecast_observations: 5
+    conditions:
+      - temperature
+      - feels_like
+      - humidity
+      - wind_speed
+      - wind_direction
+      - pressure
+      - precipitation
+      - precipitation_probability
+      - sunset
+      - sunrise
+    scan_interval:
+      days: 0
+      hours: 3
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  hourly:
+    forecast_observations: 8
+    conditions:
+      - temperature
+      - wind_speed
+      - wind_direction
+      - wind_gust
+      - precipitation
+      - precipitation_type
+      - precipitation_probability
+    scan_interval:
+      # At least one of these must be specified:
+      days: 0
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0

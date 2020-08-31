@@ -1,5 +1,4 @@
-- id: '1598479398406'
-  alias: Set scene when plex is playing
+- alias: Set scene when plex is playing
   description: ''
   trigger:
   - entity_id: media_player.plex_plex_for_samsung_tv_2018
